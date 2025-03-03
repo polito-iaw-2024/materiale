@@ -1,0 +1,19 @@
+footer {
+  color: #0000ff;
+}
+
+h1 {
+  width: 100%;
+  border: 3px dotted blue;
+  padding: 1em;
+  margin-top: 1em;
+}
+
+.purpletext {
+  color: red;
+}
+
+#firstp {
+  border: 3px dotted red;
+  padding: 1em
+}

@@ -1,0 +1,62 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  border: 4px dotted blue;
+}
+
+header img {
+  width: 20%;
+  vertical-align: middle;
+  margin: 0.5rem;
+}
+
+header h1 {
+  background-color: red;
+  display: inline;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+header li {
+  display: inline;
+}
+
+header ul {
+  background-color: blue;
+  display: inline;
+}
+
+.navclass {
+  border: 4px dotted green;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.container {
+  background-color: aqua;
+  width: 100%;
+}
+
+.messaggiobenvenuto {
+  border: 4px dotted purple;
+  width: 80%;
+  display: inline-block;
+}
+
+.advertising {
+  border: 4px dotted chocolate;
+  width: 18%;
+  display: inline-block;
+}
+
+.advertising img {
+  width: 100%;
+}
+
+footer {
+  background-color: coral;
+  padding: 0.5rem;
+}
