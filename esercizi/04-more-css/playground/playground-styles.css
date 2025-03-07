@@ -5,45 +5,37 @@ body {
 /* Course name styling */
 .course-name {
   font-family: 'Merriweather', serif;
-  font-size: 1rem;
   /* Smaller text */
+  font-size: 1rem;
   color: #A8A8A8;
-  /* Light gray color */
-  margin-bottom: 0.5rem;
   /* Space below the course name */
-  font-style: italic;
+  margin-bottom: 0.5rem;
   /* Make the course name italic */
+  font-style: italic;
 }
 
 /* Info box styling */
 .info-box {
   background-color: #E3F2FD;
-  /* Soft blue background */
   color: #1565C0;
-  /* Blue text color */
   border: 1px solid #BBDEFB;
-  /* Light blue border */
   padding: 1rem;
-  margin-bottom: 1rem;
   /* Space below the info box */
-  border-radius: 5px;
+  margin-bottom: 1rem;
   /* Rounded corners */
+  border-radius: 5px;
 }
 
 /* CSS Grid Layout */
 .mygridcontainer {
   border: 2px solid #4C6B8C;
-  /* Darker, more refined blue */
   padding: 1rem;
 }
 
 .mygridcontainer div {
   border: 2px dotted #4C6B8C;
-  /* Darker, more refined blue */
   background-color: #A2C2D1;
-  /* Soft, muted blue */
   color: #2D3A44;
-  /* Dark slate color for the text */
   font-size: 1.25rem;
   font-weight: bold;
   padding: 1rem;
@@ -55,17 +47,13 @@ body {
 /* CSS Flexbox */
 .myfbcontainer {
   border: 2px solid #3A6B3B;
-  /* Darker green */
   padding: 1rem;
 }
 
 .myfbcontainer div {
   border: 2px dotted #3A6B3B;
-  /* Darker green */
   background-color: #A6D8A0;
-  /* Soft, pleasant green */
   color: #2E4A2F;
-  /* Dark forest green for the text */
   font-size: 1.25rem;
   font-weight: bold;
   padding: 1rem;
