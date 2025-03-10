@@ -30,6 +30,10 @@ body {
 .mygridcontainer {
   border: 2px solid #4C6B8C;
   padding: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 100px 100px 100px;
 }
 
 .mygridcontainer div {
@@ -44,10 +48,26 @@ body {
   margin: 0.625rem;
 }
 
+#item-grid3 {
+  background-color: coral;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
 /* CSS Flexbox */
 .myfbcontainer {
   border: 2px solid #3A6B3B;
   padding: 1rem;
+
+  height: 15rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .myfbcontainer div {
