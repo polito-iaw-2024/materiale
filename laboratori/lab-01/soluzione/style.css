@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+#myheader {
+    background-color: #04AA6D;
+    padding: 2%;
+    width: 96%;
+}
+
+#myheader h1 {
+    color: white;
+}
+
+#myaside ul {
+    list-style-type: none;
+    padding: 0rem 2rem;
+}
+
+#myaside li {
+    padding-bottom: 5px;
+}
+
+main {
+    padding-top: 2rem;
+    width: 70%;
+}
+
+#mymenu li {
+    display: inline;
+    list-style-type: none;
+    padding: 0em;
+}
+
+.asidepost {
+    width: 20%;
+}
+
+.asidepost img {
+    width: 100%;
+}
+
+.post {
+    padding: 0% 5%;
+    width: 70%;
+}
+
+.username {
+    display: inline;
+    font-weight: 100;
+}
+
+.usrimg {
+    display: inline;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.separator {
+    clear: both;
+    padding-bottom: 4rem;
+}
+
+.button {
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 50%;
+    bottom: 30px;
+    color: white;
+    font-size: 50px;
+    height: 60px;
+    position: fixed;
+    right: 30px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 60px;
+}
