@@ -1,0 +1,78 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  /*border: 4px dotted blue;*/
+  background-color: beige;
+  display: flex;
+  justify-content: start;
+}
+
+header img {
+  width: 20%;
+  vertical-align: middle;
+  margin: 0.5rem;
+}
+
+header h1 {
+  display: inline;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+header li {
+  display: inline;
+}
+
+header ul {
+  display: inline;
+}
+
+.navclass {
+  height: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  background-color: mediumseagreen;
+  font-size: 0.8rem;
+  align-items: center;
+}
+
+.container {
+  background-color: aqua;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 3fr 1fr;
+  grid-gap: 1rem;
+  padding: 0.5rem;
+}
+
+.advertising {
+  border: 4px dotted chocolate;
+}
+
+.advertising img {
+  width: 100%;
+}
+
+.percentuale {
+  border: 4px dotted black;
+  grid-column: 1 / 3;
+  padding: 0.5rem;
+}
+
+footer {
+  background-color: coral;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.messaggiobenvenuto {
+  border: 4px dotted purple;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
