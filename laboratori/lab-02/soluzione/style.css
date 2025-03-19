@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+#myheader {
+    align-items: center;
+    background-color: #04AA6D;
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    width: 96%;
+}
+
+#myheader h1 {
+    color: white;
+}
+
+.container {
+    display: flex;
+}
+
+#myaside {
+    flex: 1;
+}
+
+#myaside ul {
+    list-style-type: none;
+    padding: 0rem 2rem;
+}
+
+#myaside li {
+    padding-bottom: 5px;
+}
+
+main {
+    flex: 2;
+    padding-top: 2rem;
+}
+
+#mymenu li {
+    display: inline;
+    list-style-type: none;
+    padding: 0em;
+}
+
+article {
+    display: flex;
+}
+
+.postimg {
+    flex: 1;
+}
+
+.postimg img {
+    max-width: 100%;
+}
+
+.post {
+    flex: 2;
+    padding: 0% 5%;
+}
+
+.postinfo {
+    align-items: center;
+    display: flex;
+}
+
+.username {
+    flex-grow: 1;
+    font-weight: 100;
+}
+
+.usrimg {
+    height: 50px;
+    padding-right: 1rem;
+}
+
+.separator {
+    clear: both;
+    padding-bottom: 4rem;
+}
+
+.button {
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 50%;
+    bottom: 30px;
+    color: white;
+    font-size: 50px;
+    height: 60px;
+    position: fixed;
+    right: 30px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 60px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        display: block;
+    }
+
+    #myheader nav {
+        display: none;
+    }
+
+    main {
+        padding-top: 0rem;
+    }
+
+    #myaside ul {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        padding: 0rem;
+    }
+
+    aside li {
+        display: inline;
+        list-style-type: none;
+        padding: 0em;
+    }
+
+    article {
+        display: block;
+    }
+
+    .postimg img {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .container {
+        display: block;
+    }
+
+    main {
+        padding-top: 1rem;
+    }
+
+    #myaside ul {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        padding: 0rem;
+    }
+
+    aside li {
+        display: inline;
+        list-style-type: none;
+        padding: 0em;
+    }
+
+    .post {
+        flex: 1;
+        padding: 0% 5%;
+    }
+}
