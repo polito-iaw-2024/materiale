@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Flask demo - Loops with Jinja</title>
+</head>
+
+<body>
+  <h1>This is a loop example</h1>
+  {% if p_user != 'Juan' %}
+  <p>Welcome, {{ p_user }}!</p>
+  {% elif p_user == 'Juan' %}
+  <p>Bienvenido, {{ p_user }}!</p>
+  {% else %}
+  <p>Welcome, Guest!</p>
+  {% endif %}
+</body>
+
+</html>
