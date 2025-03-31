@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block titolo %}Homepage{% endblock %}
+
+{% block contenuto %}
+<!-- Main -->
+<main class="row my-4">
+  <article class="col-8 col-md-8 col-lg-8">
+    <div class="row me-2 h-100">
+      <div class="col-12 col-md-12 p-5 bg-light bg-gradient border secondary-subtle rounded-1">
+        <h6 class="display-4 fw-bold">Benvenuto</h6>
+        <div>
+          <p>Trova e prenota facilmente le aule studio al Politecnico di Torino. Con un'interfaccia intuitiva e un
+            sistema di prenotazione veloce, C'è PosTo ti aiuta a organizzare al meglio il tuo tempo di studio.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+  <aside class="col-4 col-md-4 col-lg-4 iaw-card-cover text-bg-dark rounded-1 shadow-sm">
+    <div class="d-flex flex-column p-3 pb-3 text-white h-100">
+      <h3 class="pt-5 mt-5 mb-4 lh-1 fw-bold">Il Politecnico per Biennale Democrazia</h3>
+      <ul class="d-flex list-unstyled mt-auto">
+        <li class="me-auto">
+          <img src="https://github.com/jpsaenzmo.png" alt="Bootstrap" width="32" height="32"
+            class="rounded-circle border border-white">
+        </li>
+        <li class="d-flex align-items-center me-3">
+          <small>Torino</small>
+        </li>
+        <li class="d-flex align-items-center">
+          <small>3d</small>
+        </li>
+      </ul>
+    </div>
+  </aside>
+</main>
+<section>
+</section>
+<section class="row">
+  <div class="d-flex flex-column">
+    <div class="fw-bold mb-2">
+      Percentuale di occupazione in tempo reale
+    </div>
+    <div>
+      <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0"
+        aria-valuemax="100">
+        <div class="iaw-progress-bar progress-bar bg-success">25%</div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-  <title>Flask demo - Homepage</title>
-</head>
+{% block titolo %}Homepage{% endblock %}
 
-<body>
-  <!--<img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">-->
+{% block contenuto %}
+<!--<img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">-->
 
-  <h1>This is the homepage</h1>
-  <a href="{{ url_for('about') }}">About us</a>
-</body>
-
-</html>
+<h1>This is the homepage</h1>
+<ul>
+  <li><a href="{{ url_for('print_items') }}">Esempio loop</a></li>
+  <li><a href="{{ url_for('print_if') }}">Esempio if</a></li>
+  <li><a href="{{ url_for('about') }}">Esempio link</a></li>
+</ul>
+{% endblock %}

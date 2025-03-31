@@ -21,3 +21,7 @@ def print_items():
 @app.route("/conditional")
 def print_if():
     return render_template("conditional.html", p_user="Juan")
+
+@app.route("/user/<username>")
+def show_user_profile(username):
+    return render_template("conditional.html", p_user=username)
