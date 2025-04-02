@@ -1,0 +1,66 @@
+.devimg {
+    display: inline;
+    height: 140px;
+    vertical-align: middle;
+}
+
+.usrimg {
+    display: inline;
+    height: 50px;
+    vertical-align: middle;
+    margin: 0.5rem 0.5rem 0.5rem 0rem;
+}
+
+.mybutton {
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 50%;
+    bottom: 30px;
+    color: white;
+    height: 60px;
+    position: fixed;
+    right: 30px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 60px;
+}
+
+.mynavbar {
+    background-color: #04AA6D;
+    height: 10rem;
+}
+
+.username {
+    font-weight: 100;
+}
+
+#myaside li {
+    padding-bottom: 5px;
+}
+
+#myaside ul {
+    list-style-type: none;
+    padding: 0rem 1rem;
+}
+
+#myheader h1 {
+    color: white;
+}
+
+@media (max-width: 991.98px) {
+
+    #myaside ul {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        padding: 0rem 1rem;
+    }
+
+    aside li {
+        display: inline;
+        list-style-type: none;
+        padding: 0em;
+        width: fit-content;
+    }
+}
