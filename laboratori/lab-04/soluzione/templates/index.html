@@ -49,7 +49,7 @@
         </ul>
       </aside>
       <div class="col-lg-9 col-md-12">
-        {% for post in posts %}
+        {% for post in p_posts %}
         <article class="row border p-2 mx-2 my-4">
           <div class="col-lg-3 col-md-6 col-sm-12 px-0">
             <img class="w-100 p-2" src="{{ url_for('static', filename='images/' + post.img) }}" alt="...">
@@ -70,53 +70,9 @@
         </article>
         {% endfor %}
       </div>
-      <button type="button" class="btn btn-lg mybutton" data-bs-toggle="modal" data-bs-target="#inputModal">+</button>
+      <button type="button" class="btn btn-lg mybutton">+</button>
     </div>
   </div>
-
-
-  <div class="modal fade" id="inputModal" tabindex="-1" aria-labelledby="inputModal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Crea un nuovo Post!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Username</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                value="@alberto" disabled="true">
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Cosa c'è di nuovo?</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                placeholder="Inserisci un testo per il tuo post"></textarea>
-            </div>
-
-            <div class="mb-3">
-              <label for="formFile" class="form-label">Aggiungi un'immagine, se vuoi!</label>
-              <input class="form-control" type="file" id="formFile">
-            </div>
-
-            <div class="mb-3">
-              <label for="startDate">Seleziona una data</label>
-              <input id="startDate" class="form-control" type="date" />
-            </div>
-
-          </form>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-          <button type="button" class="btn btn-primary">Crea Post</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

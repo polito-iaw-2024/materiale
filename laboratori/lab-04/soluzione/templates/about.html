@@ -37,7 +37,7 @@
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
-      {% for dev in developers %}
+      {% for dev in p_developers %}
       <div class="col-lg-4">
         <div><img class="devimg rounded-circle" src="{{ url_for('static', filename='images/' + dev.devimg ) }}"
             alt="Questa è l'immagine dell'utente {{ dev.devimg |e }}"></div>
