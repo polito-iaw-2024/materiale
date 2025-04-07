@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block home_active %}active{% endblock %}
+
+{% block content %}
+<aside id="myaside" class="col-lg-3 col-md-12">
+  <ul>
+    <li>
+      <a class="link-primary" href="#">Oggi</a>
+    </li>
+    <li>
+      <a class="link-primary" href="#">Questa settimana</a>
+    </li>
+    <li>
+      <a class="link-primary" href="#">Questo mese</a>
+    </li>
+  </ul>
+</aside>
+<main class="col-lg-9 col-md-12">
+  {% for post in posts %}
+  <article class="row border p-2 mx-2 my-4">
+    <div class="col-lg-3 col-md-6 col-sm-12 px-0">
+      <a href="{{url_for('single_post', id=post.id)}}"><img class="w-100 p-2" src="{{ url_for('static', filename=post.img) }}" alt="..."></a>
+    </div>
+    <div class="col-lg-9 col-md-6 col-sm-12">
+      <section class="d-flex align-items-center mt-2 mb-4">
+        <div><img class="usrimg rounded-circle" src="{{ url_for('static', filename= post.usrimg ) }}"
+            alt="Questa è l'immagine dell'utente {{ post.usrname |e }}"></div>
+        <div>
+          <h4 class="username">{{ post.usrname |e }}</h4>
+        </div>
+        <div class="flex-grow-1 text-end">
+          <p>{{ post.date |e }}</p>
+        </div>
+      </section>
+      <p>{{ post.post |e }}</p>
+    </div>
+  </article>
+  {% endfor %}
+</main>
+{% endblock %}
