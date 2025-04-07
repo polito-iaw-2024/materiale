@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Esempio Forms in HTML</title>
+</head>
+
+<body>
+  <form action="/subscribe" method="post" enctype="multipart/form-data">
+    <label for="txt_nome">Nome</label>
+    <input type="text" name="txt_nome" id="txt_nome" placeholder="Inserici il tuo nome" required />
+    <br><br>
+    <label for="txt_email">e-mail</label>
+    <input type="email" name="txt_email" id="txt_email" placeholder="Inserici il tuo e-mail" />
+    <br><br>
+    <label for="data_nascita">Data di nascità</label>
+    <!--<input type="number" name="num_eta" id="num_eta" placeholder="Inserici la tua età" min="0" max="120"/>-->
+    <input type="date" name="data_nascita" id="data_nascita" />
+    <br><br>
+    <label for="file_profilo">Foto di profilo</label>
+    <input type="file" accept=".jpg" id="file_profilo" name="file_profilo" />
+    <br><br>
+    <label for="sel_taglia">Seleziona la tua taglia</label>
+    <select id="sel_taglia" name="sel_taglia">
+      <option value="s">s</option>
+      <option value="m">m</option>
+      <option value="l">l</option>
+      <option value="xl">xl</option>
+    </select>
+    <br><br>
+    <button type="submit">Invia</button><button type="reset">Cancella tutto</button>
+  </form>
+</body>
+
+</html>
