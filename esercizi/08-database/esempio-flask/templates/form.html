@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Esempio Forms in HTML</title>
+</head>
+
+<body>
+  <form action="/subscribe" method="post" enctype="multipart/form-data">
+    <label for="txt_nome">Nome</label>
+    <input type="text" name="txt_nome" id="txt_nome" placeholder="Inserici il tuo nome" required />
+    <br><br>
+    <label for="txt_cognome">Cognome</label>
+    <input type="text" name="txt_cognome" id="txt_cognome" placeholder="Inserici il tuo cognome" required />
+    <br><br>
+    <label for="txt_email">e-mail</label>
+    <input type="email" name="txt_email" id="txt_email" placeholder="Inserici il tuo e-mail" />
+    <br><br>
+    <label for="file_profilo">Foto di profilo</label>
+    <input type="file" accept=".jpg" id="file_profilo" name="file_profilo" />
+    <br><br>
+    <button type="submit">Invia</button><button type="reset">Cancella tutto</button>
+  </form>
+</body>
+
+</html>
