@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}Post by {{post.usrname}}{% endblock %}
+{% block home_active %}active{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+  <div class="row justify-content-end">
+    <main class="col-lg-10 col-md-12">
+      <div class="row border-top p-2 mx-2">
+        <div class="col-lg-3 col-md-6 col-sm-12 px-0">
+          {% if post.img %}
+          <img class="w-100 p-2" src="{{ url_for('static', filename=post.img) }}" alt="...">
+          {% endif %}
+        </div>
+        <div class="col-lg-9 col-md-6 col-sm-12">
+          <section class="d-flex align-items-center mt-2 mb-4">
+            <div><img class="usrimg rounded-circle" src="{{ url_for('static', filename= post.usrimg ) }}"
+                alt="Questa è l'immagine dell'utente {{ post.usrname |e }}"></div>
+            <div>
+
+              <h4 class="username">{{ post.usrname |e }}</h4>
+            </div>
+            <div class="flex-grow-1 text-end">
+              <p>{{ post.date |e }}</p>
+            </div>
+          </section>
+          <figure>
+            <blockquote class="blockquote">
+              <p>A well-known quote, contained in a blockquote element.</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </figcaption>
+          </figure>
+          <p>{{ post.post |e }}</p>
+        </div>
+        <div class="mb-3 py-3 bg-light-subtle bg-opacity-10 border border-light-subtle">
+          <form action="/comments/new" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="usrnameSelect" class="form-label">Username</label>
+              <select class="form-select" aria-label="Dimmi chi sei" id="usrnameSelect" name="usrname">
+                {% for user in users %}
+                <option value="{{user}}">{{user}}</option>
+                {% endfor %}
+              </select>
+              <div id="usernameHelp" class="form-text">Se vuoi mantenere l'username anonimo, seleziona l'opzione
+                'Pubblicare in anonimo' che trovi alla fine del form.</div>
+            </div>
+            <div class="my-2 text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio3" value="0" checked>
+                <label class="form-check-label" for="radio3">N.A.</label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio1" value="1">
+                <label class="form-check-label" for="radio1"><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i
+                    class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio2" value="2">
+                <label class="form-check-label" for="radio2"><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i
+                    class="bi bi-star"></i></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio3" value="3">
+                <label class="form-check-label" for="radio3"><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i
+                    class="bi bi-star"></i></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio4" value="4">
+                <label class="form-check-label" for="radio4"><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star"></i></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio5" value="5">
+                <label class="form-check-label" for="radio5"><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i></label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="txtComment" class="form-label">Cosa ne pensi del post</label>
+              <textarea class="form-control" id="txtComment" name="comment" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="commentImage" class="form-label">Aggiungi un'immagine al tuo commento</label>
+              <input class="form-control" type="file" id="commentImage" name="image">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="checkAnonymous" name="isAnonymous">
+              <label class="form-check-label" for="checkAnonymous">Pubblicare in anonimo</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Pubblica</button>
+            <input type="number" name="postid" value="{{ post.id }}" hidden>
+          </form>
+        </div>
+        {% if comments | length > 0 %}
+        <section class="py-3">
+          <div class="h4 pb-2 mb-4 border-bottom">
+            Comments
+          </div>
+          {% for comment in comments %}
+          <article class="row pb-2">
+            <div class="col-2 text-center"><img class="usrimg rounded-circle"
+                src="{{ url_for('static', filename=comment.usrimg) }}"
+                alt="Questa è l'immagine dell'utente {{ comment.usrname |e }}">
+              <br>{{ comment.usrname |e }}
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <div class="d-inline-flex">
+                  {% for i in range(comment.rate) %}
+                  <i class="bi bi-star-fill"></i>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="row fw-light">
+                <p>{{ comment.comment |e }}</p>
+              </div>
+              <div class="col-3">
+                {% if comment.img is defined and comment.img != '' %}
+                <img src="{{ url_for('static', filename=comment.img) }}" class="img-thumbnail"
+                  alt="Questa è l'immagine associata al commento">
+                {% endif %}
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+        </section>
+        {% endif %}
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}

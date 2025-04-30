@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block titolo %}Homepage{% endblock %}
+
+{% block contenuto %}
+<!-- Main -->
+<main class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-4">
+
+  {% for aula in p_aule %}
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{ url_for('static', filename=aula.img) }}" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{aula.nome}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Cittadella Politecnica</h6>
+        <small>
+          <ul>
+            <li>Lunedì - Venerdì: 08:00 - 22:00</li>
+            <li>Sabato: 08:00 - 21:30</li>
+          </ul>
+        </small>
+        <p class="card-text"><small class="text-body-secondary">{{aula.capienza}} posti</small></p>
+        <a href="{{url_for('aula_singolare', id_aula=aula.id)}}" class="card-link">Scopri di più</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</main>
+{% endblock %}

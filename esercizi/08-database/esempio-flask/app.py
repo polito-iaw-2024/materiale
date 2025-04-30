@@ -4,7 +4,6 @@ import utenti_dao
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def home():
     return render_template("form.html")
@@ -21,11 +20,6 @@ def nuovo_utente():
     cognome = request.form.get("txt_cognome")
     email = request.form.get("txt_email")
 
-    uploaded_file = request.files["file_profilo"]
-
-    # Save file
-    uploaded_file.save("static/profile-images/" + uploaded_file.filename)
-
-    utenti_dao.nuovo_utente(nome, cognome, email, uploaded_file.filename)
+    utenti_dao.nuovo_utente(nome, cognome, email)
 
     return redirect(url_for("welcome_page"))

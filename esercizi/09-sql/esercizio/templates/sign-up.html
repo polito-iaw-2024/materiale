@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block titolo %}Homepage{% endblock %}
+
+{% block contenuto %}
+
+<form action="/subscribe" method="post">
+  <label for="txt_nome">Nome</label>
+  <input type="text" name="txt_nome" id="txt_nome" placeholder="Inserici il tuo nome" required />
+
+  <label for="txt_cognome">Cognome</label>
+  <input type="text" name="txt_cognome" id="txt_cognome" placeholder="Inserici il tuo cognome" required />
+
+  <label for="txt_email">e-mail</label>
+  <input type="email" name="txt_email" id="txt_email" placeholder="Inserici il tuo e-mail" />
+
+  <button type="submit">Invia</button><button type="reset">Cancella tutto</button>
+</form>
+{% endblock %}
