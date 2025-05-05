@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-import utenti_dao
+import studenti_dao, aule_dao
 
 app = Flask(__name__)
 
@@ -36,12 +36,13 @@ def home():
 
 @app.route("/aule")
 def aule():
-    return render_template("aule.html", p_aule=lista)
+    lista_aule_db = aule_dao.get_aule()
+    return render_template("aule.html", p_aule=lista_aule_db)
 
 
 @app.route("/aule/<int:id_aula>")
 def aula_singolare(id_aula):
-    aula_selezionata = lista[id_aula]
+    aula_selezionata = aule_dao.get_aula(id_aula)
     return render_template("aula.html", p_aula=aula_selezionata)
 
 
@@ -56,7 +57,7 @@ def nuovo_utente():
     cognome = request.form.get("txt_cognome")
     email = request.form.get("txt_email")
 
-    utenti_dao.nuovo_utente(nome, cognome, email)
+    studenti_dao.nuovo_utente(nome, cognome, email)
 
     return redirect(url_for("home"))
 

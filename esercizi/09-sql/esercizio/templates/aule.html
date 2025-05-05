@@ -11,14 +11,13 @@
   {% for aula in p_aule %}
   <div class="col">
     <div class="card h-100">
-      <img src="{{ url_for('static', filename=aula.img) }}" class="card-img-top">
+      <img src="{{ url_for('static', filename=aula.foto_aula) }}" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">{{aula.nome}}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Cittadella Politecnica</h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{aula.indirizzo}}</h6>
         <small>
           <ul>
-            <li>Lunedì - Venerdì: 08:00 - 22:00</li>
-            <li>Sabato: 08:00 - 21:30</li>
+            <li>Lunedì - Venerdì: {{aula.ora_apertura}} - {{aula.ora_chiusura}}</li>
           </ul>
         </small>
         <p class="card-text"><small class="text-body-secondary">{{aula.capienza}} posti</small></p>
