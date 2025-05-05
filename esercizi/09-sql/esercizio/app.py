@@ -44,9 +44,11 @@ def aula_singolare(id_aula):
     aula_selezionata = lista[id_aula]
     return render_template("aula.html", p_aula=aula_selezionata)
 
+
 @app.route("/signup")
 def signup():
     return render_template("sign-up.html")
+
 
 @app.route("/subscribe", methods=["POST"])
 def nuovo_utente():
@@ -59,3 +61,7 @@ def nuovo_utente():
     return redirect(url_for("home"))
 
 
+@app.route("/prenotare")
+def prenotazione():
+    lista_id_nome = [{"id": item["id"], "nome": item["nome"]} for item in lista]
+    return render_template("prenotazione.html", p_aule=lista_id_nome)

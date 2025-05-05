@@ -23,17 +23,20 @@
       <div class="col-md-8 col-lg-8 d-flex justify-content-end">
         <ul class="nav">
           <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Login</a></li>
-          <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Sign up</a></li>
+          <li class="nav-item"><a href="{{url_for('signup')}}" class="nav-link link-body-emphasis px-2">Sign up</a></li>
         </ul>
       </div>
     </header>
 
     <nav class="row">
-      <div class="d-flex justify-content-between border-bottom">
+      <div class="d-flex justify-content-between pb-3 border-bottom">
         <ul class="nav nav-pills">
-          <li class="nav-item"><a href="{{url_for('home')}}" class="nav-link" aria-current="page">Home</a></li>
-          <li class="nav-item"><a href="{{url_for('aule')}}" class="nav-link">Aule</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Prenota</a></li>
+          <li class="nav-item"><a href="{{url_for('home')}}" class="nav-link {%block home_active%}{% endblock %}"
+              aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="{{url_for('aule')}}"
+              class="nav-link {%block aule_active%}{% endblock %}">Aule</a></li>
+          <li class="nav-item"><a href="{{url_for('prenotazione')}}"
+              class="nav-link {%block prenotazione_active%}{% endblock %}">Prenota</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Avvisi</a></li>
         </ul>
         <ul class="nav nav-pills">

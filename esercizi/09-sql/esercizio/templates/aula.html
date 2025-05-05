@@ -1,10 +1,21 @@
 {% extends "base.html" %}
 
-{% block titolo %}Homepage{% endblock %}
+{% block titolo %}{{p_aula.nome}}{% endblock %}
+
+{% block aule_active %}active{% endblock %}
 
 {% block contenuto %}
 <!-- Main -->
-<h1>{{p_aula.nome}}</h1>
-<p>{{p_aula.descrizione}}</p>
-<img src="{{ url_for('static', filename=p_aula.img) }}">
+<div class="row my-4">
+  <h1 class="display-6">{{p_aula.nome}}</h1>
+</div>
+<div class="row">
+  <div class="col-4">
+    <img src="{{ url_for('static', filename=p_aula.img) }}" class="img-fluid">
+  </div>
+  <div class="col-8">
+    <p>{{p_aula.descrizione}}</p>
+  </div>
+</div>
+
 {% endblock %}
