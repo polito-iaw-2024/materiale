@@ -1,0 +1,54 @@
+/* Default (extra small screens) */
+[class*="col"] {
+  background-color: #f8d7da;
+  /* Light red */
+  border: 2px dotted #e57373;
+  /* Darker red border */
+}
+
+/* Small screens (≥576px) */
+@media (min-width: 576px) {
+  [class*="col-sm"] {
+    background-color: #d1ecf1;
+    /* Light blue */
+    border: 2px dotted #84c0d3;
+    /* Darker blue border */
+  }
+}
+
+/* Medium screens (≥768px) */
+@media (min-width: 768px) {
+  [class*="col-md"] {
+    background-color: #d4edda;
+    /* Light green */
+    border: 2px dotted #81c784;
+    /* Darker green border */
+  }
+}
+
+/* Large screens (≥992px) */
+@media (min-width: 992px) {
+  [class*="col-lg"] {
+    background-color: #fff3cd;
+    /* Light yellow */
+    border: 2px dotted #d4b948;
+    /* Darker yellow border */
+  }
+}
+
+/* Extra large screens (≥1200px) */
+@media (min-width: 1200px) {
+  [class*="col-xl"] {
+    background-color: #cce5ff;
+    /* Light sky blue */
+    border: 2px dotted #a6bde5;
+    /* Darker sky blue border */
+  }
+}
+
+.row {
+  border: 2px dotted #ccc;
+  /* Soft dotted border with light gray color */
+  border-radius: 4px;
+  /* Optional: Adds slight rounded corners to the border */
+}

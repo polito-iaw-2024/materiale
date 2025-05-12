@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block titolo %}Prenotazione{% endblock %}
+
+{% block prenotazione_active %}active{% endblock %}
+
+{% block contenuto %}
+<div class="row justify-content-md-center">
+  <form action="" method="post" class="row bg-body-tertiary border border-light-subtle rounded-1 my-4">
+
+    <strong class="py-3 border-bottom">Informazioni personali</strong>
+
+    <div class="col-md-4 p-3">
+      <label for="txt_nome" class="form-label">Nome</label>
+      <input type="text" class="form-control" name="txt_nome" id="txt_nome" placeholder="Inserici il tuo nome"
+        required />
+    </div>
+    <div class="col-md-4 p-3">
+      <label for="txt_cognome" class="form-label">Cognome</label>
+      <input type="text" class="form-control" name="txt_cognome" id="txt_cognome" placeholder="Inserici il tuo cognome"
+        required />
+    </div>
+    <div class="col-md-4 p-3">
+      <label for="txt_email" class="form-label">e-mail</label>
+      <input type="email" class="form-control" name="txt_email" id="txt_email" placeholder="Inserici il tuo e-mail"
+        required />
+    </div>
+
+    <strong class="py-3 border-bottom">Informazioni sulla prenotazione</strong>
+
+    <div class="col-md-4 p-3">
+      <label for="txt_date" class="form-label">Data</label>
+      <input type="date" class="form-control" name="txt_date" id="txt_date" placeholder="Seleziona una data" required />
+    </div>
+    <div class="col-md-4 p-3">
+      <label for="select_aula" class="form-label">Aula</label>
+      <select class="form-select" name="select_aula" id="select_aula">
+        {% for aula in p_aule %}
+        <option value="{{aula.id}}">{{aula.nome}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-6 p-3">
+      <button type="submit" class="btn btn-primary">Invia</button>
+      <button type="reset" class="btn btn-danger">Cancella tutto</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
