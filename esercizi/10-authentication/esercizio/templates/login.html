@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block titolo %}Login{% endblock %}
+
+{% block contenuto %}
+<div class="row mt-4">
+  <h1 class="display-6">Login</h1>
+</div>
+<div class="row justify-content-md-center">
+  <form action="/autenticare" method="post" class="col-4 row bg-body-tertiary border border-light-subtle rounded-1 my-4">
+    <div class="col-12 p-3">
+      <label for="txt_email" class="form-label">e-mail</label>
+      <input type="email" class="form-control" name="txt_email" id="txt_email" placeholder="Inserici il tuo e-mail"
+        required />
+    </div>
+    <div class="col-12 p-3">
+      <label for="txt_password" class="form-label">Password</label>
+      <input type="password" class="form-control" name="txt_password" id="txt_password"
+        placeholder="Inserisci la password" required/>
+    </div>
+    <div class="col-12 p-3">
+      <button type="submit" class="btn btn-primary">Invia</button>
+    </div>
+        <div class="col-12 p-3">
+          <small>Non hai ancora creato un account? <a href="{{url_for('signup')}}">Registrati</a></small>
+        </div>
+  </form>
+</div>
+{% endblock %}
