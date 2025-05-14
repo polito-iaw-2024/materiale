@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block title %}Post by {{post.nickname}}{% endblock %}
+{% block home_active %}active{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+  <div class="row justify-content-end">
+    <main class="col-lg-10 col-md-12">
+      <div class="row border-top p-2 mx-2">
+        <div class="col-lg-3 col-md-6 col-sm-12 px-0">
+          {% if post.immagine_post %}
+          <img class="w-100 p-2" src="{{ url_for('static', filename=post.immagine_post) }}" alt="Questa è l'immagine del post">
+          {% endif %}
+        </div>
+        <div class="col-lg-9 col-md-6 col-sm-12">
+          <section class="d-flex align-items-center mt-2 mb-4">
+            <div><img class="usrimg rounded-circle" src="{{ url_for('static', filename= post.immagine_profilo ) }}"
+                alt="Questa è l'immagine dell'utente {{ post.nickname |e }}"></div>
+            <div>
+              <h4 class="username">{{ post.nickname | e }}</h4>
+            </div>
+            <div class="flex-grow-1 text-end">
+              <p>{{ post.data_pubblicazione | e }}</p>
+            </div>
+          </section>
+          <p>{{ post.testo |e }}</p>
+        </div>
+        <div class="mb-3 py-3 bg-light-subtle bg-opacity-10 border border-light-subtle">
+          <form action="/comments/new" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="usrnameSelect" class="form-label">Username</label>
+              <select class="form-select" aria-label="Dimmi chi sei" id="usrnameSelect" name="id_utente">
+                {% for user in users %}
+                <option value="{{user.id}}">{{user.nickname}}</option>
+                {% endfor %}
+              </select>
+              <div id="usernameHelp" class="form-text">Se vuoi mantenere l'username anonimo, seleziona l'opzione
+                'Pubblicare in anonimo' che trovi alla fine del form.</div>
+            </div>
+            <div class="my-2 text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio3" value="0" checked>
+                <label class="form-check-label" for="radio3">N.A.</label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio1" value="1">
+                <label class="form-check-label" for="radio1"><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i
+                    class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio2" value="2">
+                <label class="form-check-label" for="radio2"><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i
+                    class="bi bi-star"></i></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio3" value="3">
+                <label class="form-check-label" for="radio3"><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i
+                    class="bi bi-star"></i></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio4" value="4">
+                <label class="form-check-label" for="radio4"><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star"></i></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioOptions" id="radio5" value="5">
+                <label class="form-check-label" for="radio5"><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i></label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="txtComment" class="form-label">Cosa ne pensi del post</label>
+              <textarea class="form-control" id="txtComment" name="testo" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="commentImage" class="form-label">Aggiungi un'immagine al tuo commento</label>
+              <input class="form-control" type="file" id="commentImage" name="immagine_commento">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="checkAnonymous" name="isAnonymous">
+              <label class="form-check-label" for="checkAnonymous">Pubblicare in anonimo</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Pubblica</button>
+            <input type="number" name="id_post" value="{{ post.id }}" hidden>
+          </form>
+        </div>
+        {% if comments | length > 0 %}
+        <section class="py-3">
+          <div class="h4 pb-2 mb-4 border-bottom">
+            Comments
+          </div>
+          {% for comment in comments %}
+          <article class="row pb-2">
+            {% if comment.id_utente != None %}
+            <div class="col-2 text-center"><img class="usrimg rounded-circle"
+                src="{{ url_for('static', filename=comment.immagine_profilo) }}"
+                alt="Questa è l'immagine dell'utente {{ comment.nickname |e }}">
+              <br>{{ comment.nickname |e }}
+            </div>
+            {% else %}
+            <div class="col-2 text-center"><img class="usrimg rounded-circle"
+                src="{{ url_for('static', filename='anonymous.png') }}">
+              <br>Utente anonimo
+            </div>
+            {% endif %}
+            <div class="col-10">
+              <div class="row">
+                <div class="d-inline-flex">
+                  {% for i in range(comment.valutazione) %}
+                  <i class="bi bi-star-fill"></i>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="row fw-light">
+                <p>{{ comment.testo | e }}</p>
+              </div>
+              <div class="col-3">
+                {% if comment.immagine_commento != None %}
+                <img src="{{ url_for('static', filename=comment.immagine_commento) }}" class="img-thumbnail"
+                  alt="Questa è l'immagine associata al commento">
+                {% endif %}
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+        </section>
+        {% endif %}
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}
