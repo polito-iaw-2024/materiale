@@ -6,25 +6,7 @@
 
 {% block contenuto %}
 <div class="row justify-content-md-center">
-  <form action="" method="post" class="row bg-body-tertiary border border-light-subtle rounded-1 my-4">
-
-    <strong class="py-3 border-bottom">Informazioni personali</strong>
-
-    <div class="col-md-4 p-3">
-      <label for="txt_nome" class="form-label">Nome</label>
-      <input type="text" class="form-control" name="txt_nome" id="txt_nome" placeholder="Inserici il tuo nome"
-        required />
-    </div>
-    <div class="col-md-4 p-3">
-      <label for="txt_cognome" class="form-label">Cognome</label>
-      <input type="text" class="form-control" name="txt_cognome" id="txt_cognome" placeholder="Inserici il tuo cognome"
-        required />
-    </div>
-    <div class="col-md-4 p-3">
-      <label for="txt_email" class="form-label">e-mail</label>
-      <input type="email" class="form-control" name="txt_email" id="txt_email" placeholder="Inserici il tuo e-mail"
-        required />
-    </div>
+  <form action="/prenotare" method="post" class="row bg-body-tertiary border border-light-subtle rounded-1 my-4">
 
     <strong class="py-3 border-bottom">Informazioni sulla prenotazione</strong>
 
@@ -37,6 +19,14 @@
       <select class="form-select" name="select_aula" id="select_aula">
         {% for aula in p_aule %}
         <option value="{{aula.id}}">{{aula.nome}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-4 p-3">
+      <label for="select_fascia_oraria" class="form-label">Fascia oraria</label>
+      <select class="form-select" name="select_fascia_oraria" id="select_fascia_oraria">
+        {% for fascia in p_fasce %}
+        <option value="{{fascia.id}}">{{fascia.ora_inizio}} - {{fascia.ora_fine}}</option>
         {% endfor %}
       </select>
     </div>

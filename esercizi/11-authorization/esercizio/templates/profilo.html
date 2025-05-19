@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block titolo %}Profilo{% endblock %}
+
+{% block contenuto %}
+<div class="row mt-4">
+  <h1 class="display-6">Profilo e prenotazioni di {{current_user.nome}}</h1>
+</div>
+
+{% for prenotazione in p_prenotazioni %}
+<p>{{prenotazione.nome}}</p>
+{% endfor %}
+
+{% endblock %}
