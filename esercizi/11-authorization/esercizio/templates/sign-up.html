@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block titolo %}Sign-up{% endblock %}
+
+{% block contenuto %}
+<div class="row mt-4">
+  <h1 class="display-6">Sign up</h1>
+</div>
+<div class="row justify-content-md-center">
+  <form action="/subscribe" method="post" class="col-8 row bg-body-tertiary border border-light-subtle rounded-1 my-4">
+    <div class="col-md-6 p-3">
+      <label for="txt_nome" class="form-label">Nome</label>
+      <input type="text" class="form-control" name="txt_nome" id="txt_nome" placeholder="Inserici il tuo nome"
+        required />
+    </div>
+    <div class="col-md-6 p-3">
+      <label for="txt_cognome" class="form-label">Cognome</label>
+      <input type="text" class="form-control" name="txt_cognome" id="txt_cognome" placeholder="Inserici il tuo cognome"
+        required />
+    </div>
+    <div class="col-md-6 p-3">
+      <label for="txt_email" class="form-label">e-mail</label>
+      <input type="email" class="form-control" name="txt_email" id="txt_email" placeholder="Inserici il tuo e-mail"
+        required />
+    </div>
+    <div class="col-md-6 p-3">
+      <label for="txt_password" class="form-label">Password</label>
+      <input type="password" class="form-control" name="txt_password" id="txt_password"
+        placeholder="Inserisci la password" aria-describedby="passwordHelp" />
+      <div id="passwordHelp" class="form-text">La password deve contenere almeno 8 caratteri.</div>
+    </div>
+    <div class="col-md-6 p-3">
+      <button type="submit" class="btn btn-primary">Invia</button>
+      <button type="reset" class="btn btn-danger">Cancella tutto</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
