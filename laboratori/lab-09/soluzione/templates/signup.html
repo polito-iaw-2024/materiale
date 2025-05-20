@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Iscriviti{% endblock %}
+{% block signup_active %}active{% endblock %}
+
+{% block content %}
+    <a href="/">Torna indietro</a>
+    <div class="col-4 offset-md-4 bg-light p-4 border rounded">
+        <form action="/iscriviti" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="nicknameInput" class="form-label">Nickname</label>
+                <input type="text" class="form-control" name="nickname" id="nicknameInput">
+            </div>
+            <div class="mb-3">
+                <label for="passwordInput" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="passwordInput">
+                <div id="passwordHelp" class="form-text">Non condivideremo mai la tua password con nessun altro.</div>
+            </div>
+            <div class="mb-3">
+                <label for="immagineInput" class="form-label">Immagine di profilo</label>
+                <input type="file" class="form-control" name="immagine_profilo" id="immagineInput">
+            </div>
+            <button type="submit" class="btn btn-primary">Registrati</button>
+        </form>
+    </div>
+{% endblock %}

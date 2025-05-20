@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block home_active %}active{% endblock %}
+
+{% block content %}
+<aside id="myaside" class="col-lg-3 col-md-12">
+  {% if not current_user.is_authenticated %}
+  <section>
+    <h3>Login</h3>
+    <div class="bg-light p-4 border rounded mb-3">
+      <form action="/login" method="POST">
+        <div class="mb-3">
+          <label for="nicknameInput" class="form-label">Nickname</label>
+          <input type="text" class="form-control" id="nicknameInput" aria-describedby="nicknameHelp" name="nickname">
+          <div id="nicknameHelp" class="form-text">Non condivideremo mai il tuo nickname con nessun altro.</div>
+        </div>
+        <div class="mb-3">
+          <label for="passwordInput" class="form-label">Password</label>
+          <input type="password" class="form-control" id="passwordInput" name="password">
+        </div>
+        <small>Non hai ancora un account? <a href="/iscriviti">Registrati</a></small>
+        <button type="submit" class="btn btn-primary mt-3">Accedi</button>
+      </form>
+    </div>
+  </section>
+  {% endif %}
+  <ul>
+    <li>
+      <a class="link-primary" href="#">Oggi</a>
+    </li>
+    <li>
+      <a class="link-primary" href="#">Questa settimana</a>
+    </li>
+    <li>
+      <a class="link-primary" href="#">Questo mese</a>
+    </li>
+  </ul>
+</aside>
+<main class="col-lg-9 col-md-12">
+  {% for post in posts %}
+  <article class="row border p-2 mx-2 my-4">
+    <div class="col-lg-3 col-md-6 col-sm-12 px-0">
+      {% if post.immagine_post %}
+      <a href="{{url_for('single_post', id=post.id)}}"><img class="w-100 p-2"
+          src="{{ url_for('static', filename=post.immagine_post) }}" alt="Questa è l'immagine del post"></a>
+      {% endif %}
+    </div>
+    <div class="col-lg-9 col-md-6 col-sm-12">
+      <section class="d-flex align-items-center mt-2 mb-4">
+        <div><img class="usrimg rounded-circle" src="{{ url_for('static', filename= post.immagine_profilo ) }}"
+            alt="Questa è l'immagine dell'utente {{ post.nickname |e }}"></div>
+        <div>
+          <h4 class="username">{{ post.nickname |e }}</h4>
+        </div>
+        <div class="flex-grow-1 text-end">
+          <p>{{ post.data_pubblicazione |e }}</p>
+        </div>
+      </section>
+      <p>{{ post.testo |e }}</p>
+      {% if post.immagine_post == None %}
+      <a class="btn btn-outline-secondary btn-sm mb-3" href="{{url_for('single_post', id=post.id)}}"
+        role="button">Visualizza</a>
+      {% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</main>
+
+{% if current_user.is_authenticated %}
+<button type="button" class="mybutton" data-bs-toggle="modal" data-bs-target="#createModal">
+  +
+</button>
+<div class="modal fade" id="createModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Crea un nuovo post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/posts/new" method="POST" enctype="multipart/form-data">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="postTextArea" class="form-label">Che novità mi porti?</label>
+            <textarea class="form-control" id="postTextArea" name="testo" rows="3"
+              placeholder="Inserisci un testo per il tuo post" required minlength="30"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="imageFile" class="form-label">Aggiungi un'immagine, se vuoi</label>
+            <input class="form-control" name="immagine_post" type="file" id="imageFile">
+          </div>
+          <div class="mb-3">
+            <label for="dateTextInput" class="form-label">Seleziona una data</label>
+            <input class="form-control" type="date" name="data_pubblicazione" id="dateTextInput" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+          <button type="submit" class="btn btn-primary">Crea Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

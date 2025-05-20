@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+{% block about_active %}active{% endblock %}
+
+{% block content %}
+<div class="row marketing text-center">
+  {% for dev in developers %}
+  <div class="col-lg-4">
+    <div><img class="devimg rounded-circle" src="{{ url_for('static', filename= dev.devimg ) }}"
+        alt="Questa è l'immagine dell'utente {{ dev.devimg |e }}"></div>
+    <h2 class="fw-normal my-4">{{ dev.name |e }}</h2>
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <p>{{ dev.quote |e }}</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        {{ dev.quoteAuthor |e }}
+      </figcaption>
+    </figure>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
